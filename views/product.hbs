@@ -2,7 +2,18 @@
 <p>Detail of product</p>
 
 <ul>
-        <li>
-            <p><b>{{product.name}}</b>: {{product.description}}</p>
-        </li>
+    <li>
+        <p><b>{{product.name}}</b>: {{product.description}}</p>
+    </li>
 </ul>
+
+<form action="/productS" method="POST">
+    <input type="hidden" name="pid" value="{{product.id}}">
+    Name:<br>
+    <input type="text" name="author">
+    <br>
+    Comment:<br>
+    <textArea rows="4" cols="50" name="comments"></textArea>
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
