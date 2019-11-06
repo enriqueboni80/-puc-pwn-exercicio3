@@ -1,6 +1,7 @@
 const knex = require('knex')
 const knexConfigs = require('../knexfile')
 const db = knex(knexConfigs.development)
+const Comments = require('./Comment')
 
 const TABLE_NAME = 'products'
 
@@ -27,5 +28,16 @@ module.exports = {
                 description: product.description,
                 price: product.price
             });
+    },
+    saveComment(req) {
+        return Comments.create({
+            pid: req.body.pid,
+            author: req.body.author,
+            comment: req.body.comments,
+            date_comment: Date.now()
+        })
+    },
+    getProductComments(pid) {
+        return Comments.find({ 'pid': pid }).exec()
     }
 }

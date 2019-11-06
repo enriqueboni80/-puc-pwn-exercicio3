@@ -10,6 +10,9 @@ const commentSchema = new mongoose.Schema({
     comment: {
         type: String
     },
+    date_comment: {
+        type: Date
+    }
 })
 
 const Comment = mongoose.model('Comment', commentSchema)

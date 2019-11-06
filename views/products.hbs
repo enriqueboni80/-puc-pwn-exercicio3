@@ -18,10 +18,11 @@
     <input type="submit" value="Submit">
 </form>
 
-<ul>
-    {{#each comments}}
-        <li>
-            <p><b>{{this.author}}</b>: {{this.comment}}</p>
-        </li>
-    {{/each}}
-</ul>
+<hr>
+
+{{#each comments}}
+<p><b>{{this.author}}</b></p>
+<p>{{this.comment}}</p>
+<p>{{this.date_comment}}</p>
+<hr>
+{{/each}}
