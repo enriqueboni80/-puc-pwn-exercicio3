@@ -14,8 +14,12 @@ router.get('/', function(_, res) {
 router.get('/:id', function(req, res) {
     Products.getByID(req.params.id)
         .then(function(product) {
-            res.render('product', { product: product[0] });
+            res.render('products', { product: product[0] });
         })
+});
+
+router.get('/comments', function(req, res) {
+    Comments.find().then(comments => res.render('products', { comments }))
 });
 
 router.post('/', function(req, res) {

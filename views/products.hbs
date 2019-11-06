@@ -17,3 +17,11 @@
     <br><br>
     <input type="submit" value="Submit">
 </form>
+
+<ul>
+    {{#each comments}}
+        <li>
+            <p><b>{{this.author}}</b>: {{this.comment}}</p>
+        </li>
+    {{/each}}
+</ul>
