@@ -11,16 +11,20 @@ router.get('/', function(_, res) {
         })
 });
 
+
 router.get('/:id', function(req, res) {
     Products.getByID(req.params.id)
-        .then(function(product) {
-            res.render('products', { product: product[0] });
-        })
+        .then(product => this.produtos = product[0])
+
+    Comments.find().then(comentarios => this.comentarios = comentarios)
+
+    res.render('products', {
+        product: this.produtos,
+        comments: this.comentarios
+    })
+
 });
 
-router.get('/comments', function(req, res) {
-    Comments.find().then(comments => res.render('products', { comments }))
-});
 
 router.post('/', function(req, res) {
     Comments.create({
