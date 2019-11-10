@@ -21,8 +21,7 @@
 <hr>
 
 {{#each comments}}
-<p><b>{{this.author}}</b></p>
-<p>{{this.comment}}</p>
-<p>{{this.date_comment}}</p>
-<hr>
+    <p><b>{{this.author}}</b> - {{this.date_comment}}</p>
+    <p>{{this.comment}}</p>
+    <hr>
 {{/each}}

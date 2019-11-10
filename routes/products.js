@@ -14,16 +14,20 @@ router.get('/', function(_, res) {
 router.get('/:pid', function(req, res) {
     Products.getByID(req.params.pid)
         .then(product => this.produtos = product[0])
-    Products.getProductComments(req.params.pid).then(comentarios => this.comentarios = comentarios)
-    res.render('products', {
-        product: this.produtos,
-        comments: this.comentarios
-    })
+    Products.getProductComments(req.params.pid)
+        .then(comentarios => this.comentarios = comentarios)
+
+    setTimeout(() => {
+        res.render('products', {
+            product: this.produtos,
+            comments: this.comentarios
+        })
+    }, 1500)
 });
 
 router.post('/', function(req, res) {
     Products.saveComment(req)
-        .then(res.redirect(`/`))
+        .then(res.redirect(`/products/${req.body.pid}`))
 });
 
 module.exports = router;

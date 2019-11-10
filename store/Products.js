@@ -38,6 +38,6 @@ module.exports = {
         })
     },
     getProductComments(pid) {
-        return Comments.find({ 'pid': pid }).exec()
+        return Comments.find({ 'pid': pid }).sort({ date_comment: -1 }).exec()
     }
 }
